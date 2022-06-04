@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center pr-5 h-16 w-96 mx-auto mt-2 bg-gray-100 border-b rounded-sm outline-none border-gray-500 ">
+  <div class="flex items-center justify-between h-16 pr-5 mx-auto mt-2 bg-gray-100 border-b border-gray-500 rounded-sm outline-none w-96 ">
     <todo-item-label
       v-show="!editable"
       :content="content"
@@ -10,11 +10,10 @@
     </todo-item-label>
     <input
       ref="refInput"
-      class="relative left-4 w-5/6 bg-gray-100 border-b rounded-sm outline-none border-gray-500"
+      class="relative w-5/6 bg-gray-100 border-b border-gray-500 rounded-sm outline-none left-4"
       v-show="editable"
       type="text"
       :value="content"
-      @input="handleInputChange($event)"
       @keyup.enter="handleEditFinish()"
     />
     <div @click="handleDelete">
@@ -27,6 +26,8 @@
 <script setup lang="ts">
 import { nextTick, ref } from 'vue' 
 import TodoItemLabel from './TodoItemLabel.vue'
+import { ElNotification } from 'element-plus'
+
 
 const emit = defineEmits(['delete', 'itemDbClick', 'inputEditFinish', "checkedChange"])
 
@@ -47,10 +48,6 @@ const handleDelete = () => {
   emit('delete')
 }
 
-const handleInputChange = ($event: any) => {
-  
-}
-
 const handleDbClick = () => {
   emit('itemDbClick')
   nextTick(() => {
@@ -59,6 +56,14 @@ const handleDbClick = () => {
 }
 
 const handleEditFinish = () => {
+  if (!refInput.value.value) {
+    ElNotification({
+      title: '错误',
+      message: '你什么都没有输入哦！',
+      type: 'warning'
+    })
+    return
+  }
   emit('inputEditFinish', refInput.value.value)
 }
 </script>
