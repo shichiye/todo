@@ -15,6 +15,7 @@
       type="text"
       :value="content"
       @keyup.enter="handleEditFinish()"
+      @blur="handleEditFinish()"
     />
     <div @click="handleDelete">
       <el-icon :size="30"><Close /></el-icon>
@@ -64,6 +65,7 @@ const handleEditFinish = () => {
     })
     return
   }
+  console.log(refInput.value.value)
   emit('inputEditFinish', refInput.value.value)
 }
 </script>

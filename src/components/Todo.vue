@@ -31,7 +31,6 @@ const newTodo = ref("")
 const todoItems = ref<Array<ITodoType>>([]);
 
 onMounted(() => {
-  console.log("123")
   todoItems.value = localStorage.getItem('todoItems')
     ? JSON.parse(localStorage.getItem('todoItems') || '[]')
     : []
