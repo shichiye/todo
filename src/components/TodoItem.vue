@@ -1,5 +1,6 @@
 <template>
-  <div class="flex items-center justify-between h-16 pr-5 mx-auto mt-2 bg-gray-100 border-b border-gray-500 rounded-sm outline-none w-96 ">
+  <div class="flex items-center justify-between h-16 pr-5 mx-auto mt-2 bg-gray-100 border-b border-gray-500 rounded-sm outline-none w-96 "
+    :class="isDark ? 'bg-gray-700 text-white' : ''">
     <todo-item-label
       v-show="!editable"
       :content="content"
@@ -10,7 +11,8 @@
     </todo-item-label>
     <input
       ref="refInput"
-      class="relative w-5/6 bg-gray-100 border-b border-gray-500 rounded-sm outline-none left-4"
+      class="relative w-5/6 bg-gray-300 border-b border-gray-500 rounded-sm outline-none left-4"
+      :class="isDark ? 'bg-black text-white' : ''"
       v-show="editable"
       type="text"
       :value="content"
@@ -28,6 +30,7 @@
 import { nextTick, ref } from 'vue' 
 import TodoItemLabel from './TodoItemLabel.vue'
 import { ElNotification } from 'element-plus'
+import { isDark } from '../composables/dark';
 
 
 const emit = defineEmits(['delete', 'itemDbClick', 'inputEditFinish', "checkedChange"])

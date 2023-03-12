@@ -2,7 +2,7 @@
   <div class="flex items-center h-16">
     <el-image v-show="checked" :src="checkedImg" @click="handleCheckChange"></el-image>
     <el-image v-show="!checked" :src="uncheckedImg" @click="handleCheckChange"></el-image>
-    <div class="relative left-3 cursor-pointer" :class="{'line-through': checked, 'text-gray-400': checked}" @dblclick="handleDbClick">
+    <div class="relative cursor-pointer left-3" :class="{'line-through': checked, 'text-gray-400': checked, 'text-black': isDark}" @dblclick="handleDbClick">
       {{ content }}
     </div>
     <div>
@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
 import { nextTick } from 'vue';
+import { isDark } from '../composables/dark';
 
 
 const emit = defineEmits(['checkedChange', 'dbClick'])

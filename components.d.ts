@@ -5,8 +5,10 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
+    Footer: typeof import('./src/components/Footer.vue')['default']
     Todo: typeof import('./src/components/Todo.vue')['default']
     TodoHeader: typeof import('./src/components/TodoHeader.vue')['default']
     TodoItem: typeof import('./src/components/TodoItem.vue')['default']

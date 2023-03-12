@@ -13,6 +13,8 @@
         @checkedChange="handleItemCompleted(item)"
       />
     </template>
+    <Footer />
+
   </div>
 </template>
 
@@ -22,6 +24,7 @@ import TodoHeader from './TodoHeader.vue'
 import TodoNewItem from './TodoNewItem.vue'
 import TodoItem from './TodoItem.vue'
 import  ITodoType  from './types'
+import Footer from './Footer.vue'
 
 import 'element-plus/es/components/notification/style/css'
 import { ElNotification } from 'element-plus'

@@ -1,6 +1,7 @@
 import { createApp, toRaw } from 'vue'
 import App from './App.vue'
 import './assets/css/index.css'
+import './assets/main.css'
 
 import * as ELIcons from '@element-plus/icons-vue'
 
