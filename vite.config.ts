@@ -17,5 +17,5 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     })
   ],
-  base: '/todo/'
+  base: '/'
 })

@@ -3,7 +3,7 @@
     <input type="text"
            placeholder="有什么事需要完成吗？"
            :value="newTodo"
-           class="text-center w-96 p-4 mt-5 bg-gray-100 border rounded-sm outline-none border-gray-500"
+           class="p-4 mt-5 bg-gray-100 border border-gray-500 rounded-sm outline-none w-96"
            @input="handleInputChange($event)"
            @keyup.enter="handleAddNewItem "/>
   </div>
