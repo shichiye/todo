@@ -12,7 +12,7 @@
     <input
       ref="refInput"
       class="relative w-5/6 bg-gray-300 border-b border-gray-500 rounded-sm outline-none left-4"
-      :class="isDark ? 'bg-black text-white' : ''"
+      :class="isDark ? 'bg-gray-900	text-gray-200' : ''"
       v-show="editable"
       type="text"
       :value="content"
